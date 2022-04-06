@@ -13,9 +13,10 @@ public class AddToCartConfirmationPopup extends BasePage{
         wait.until(ExpectedConditions.elementToBeClickable(proceedToCheckoutButtonLocator));
     }
 
-    public void clickProceedToCheckoutButton() {
+    public ShoppingCartSummaryPage proceedToCheckout() {
         wait.until(ExpectedConditions.elementToBeClickable(proceedToCheckoutButtonLocator));
         WebElement proceedToCheckoutButton = driver.findElement(proceedToCheckoutButtonLocator);
         proceedToCheckoutButton.click();
+        return new ShoppingCartSummaryPage(driver);
     }
 }

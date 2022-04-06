@@ -13,9 +13,10 @@ public class ProductDetailsPage extends BasePage{
         wait.until(ExpectedConditions.elementToBeClickable(addToCartButtonLocator));
     }
 
-    public void clickAddToCartButton() {
+    public AddToCartConfirmationPopup addProductToShoppingCart() {
         wait.until(ExpectedConditions.elementToBeClickable(addToCartButtonLocator));
         WebElement addToCartButton = driver.findElement(addToCartButtonLocator);
         addToCartButton.click();
+        return new AddToCartConfirmationPopup(driver);
     }
 }

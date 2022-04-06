@@ -14,9 +14,10 @@ public class UserAccountPage extends BasePage{
         wait.until(ExpectedConditions.visibilityOfElementLocated(homeLinkLocator));
     }
 
-    public void navigateToHomePage() {
+    public HomePage navigateBackToHomePage() {
         wait.until(ExpectedConditions.visibilityOfElementLocated(homeLinkLocator));
         WebElement homeLink = driver.findElement(homeLinkLocator);
         homeLink.click();
+        return HomePage.getInstanceOfHomePage(driver);
     }
 }

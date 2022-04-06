@@ -15,23 +15,32 @@ public class LoginPage extends BasePage{
         wait.until(ExpectedConditions.visibilityOfElementLocated(emailAddressLocator));
     }
 
-    public void setEmailAddress(String emailAddress) {
+    private void setEmailAddress(String emailAddress) {
         wait.until(ExpectedConditions.visibilityOfElementLocated(emailAddressLocator));
         WebElement emailTextbox = driver.findElement(emailAddressLocator);
         emailTextbox.clear();
         emailTextbox.sendKeys(emailAddress);
     }
 
-    public void setPassword(String password) {
+    private void setPassword(String password) {
         wait.until(ExpectedConditions.visibilityOfElementLocated(passwordTextboxLocator));
         WebElement passwordTextbox = driver.findElement(passwordTextboxLocator);
         passwordTextbox.clear();
         passwordTextbox.sendKeys(password);
     }
 
-    public void clickSignInButton() {
+    private void clickSignInButton(){
         wait.until(ExpectedConditions.elementToBeClickable(signInButtonLocator));
         WebElement signInButton = driver.findElement(signInButtonLocator);
         signInButton.click();
     }
+
+    public UserAccountPage login(String emailAddress, String password) {
+        setEmailAddress(emailAddress);
+        setPassword(password);
+        clickSignInButton();
+        return new UserAccountPage(driver);
+    }
+
+
 }
