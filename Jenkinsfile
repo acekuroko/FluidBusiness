@@ -3,7 +3,7 @@ pipeline{
     stages{
         stage("Testing Jenkins File"){
             steps{
-                bat "whoami"
+                sh "whoami"
             }
         }
     }
